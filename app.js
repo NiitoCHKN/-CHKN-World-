@@ -26,15 +26,6 @@ bot.on('guildMemberAdd', member => {
   member.user.send("E siamo arrivati ad oggi, che siamo talmente potenti da permetterci anche un server discord.");
   member.user.send("");
   member.user.send("");
-    member.user.send("Ma non è mica finita qui, se vuoi essere testimone della pazzia di **Niito**, ti do le fonti per farlo, ma mi astengo da qualsiasi danno cerebrale:");
-  member.user.send("");
-    member.user.send("**- Gruppo Steam:** http://steamcommunity.com/groups/ChickenInside"):
-  member.user.send("");
-  member.user.send("**- Server Teamspeak:** CHKN-World.ddns.net");
-  member.user.send("");
-  member.user.send("**- Whatsapp:** Se sei degno di entrarci, ci entrerai, basta solo avere gli agganci giusti per insediarsi nel CHKN World.");
-  member.user.send("");
-  member.user.send("");
   member.user.send("");
   member.user.send("");
   member.user.send("**● REGOLAMENTO**");
