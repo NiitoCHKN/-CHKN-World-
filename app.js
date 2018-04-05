@@ -52,4 +52,4 @@ bot.on('guildMemberAdd', member => {
          console.log(`${member.user.username} has joined`);
 });
 
-bot.login('TOKEN');
+bot.login(process.env.token);
