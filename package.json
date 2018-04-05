@@ -2,7 +2,7 @@
   "name": "✪ CHKN World ✪",
   "description": "chknbot",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "bot.js",
   "scripts": {
     "start": "node app.js"
   },
