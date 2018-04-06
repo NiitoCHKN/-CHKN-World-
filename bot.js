@@ -10,7 +10,13 @@ bot.on("guildMemberAdd", member => {
   if (!channel) return;
  channel.send(`Buongiornoo! 🐓 ${member} Benvenuto nel ✪ CHKN World ✪!`);
 });
-  
+
+bot.on('channelCreate', channel => {
+console.log (A ${channel.type} by the name of ${channel.name} and was
+${channel.createAt} with the ID of ${channel.id}`);
+channel.send('Canale creato con successo!');
+});
+
 bot.on('guildMemberAdd', member => {
   member.user.send("");
   member.user.send("");
