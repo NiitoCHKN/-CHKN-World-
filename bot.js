@@ -66,6 +66,9 @@ bot.on('ready', () => {
   
   });
   
+const Discord = require("discord.js");
+const client = new Discord.Client();
+
   client.on("guildMemberAdd", (member) => {
   const guild = member.guild;
   newUsers.set(member.id, member.user);
