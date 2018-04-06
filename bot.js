@@ -8,7 +8,7 @@ bot.on('ready', () => {
 bot.on("guildMemberAdd", member => {
  const channel = member.guild.channels.get('204986384233136129');
   if (!channel) return;
- channel.send(`Buongiornoo! 🐓${member} Benvenuto nel ✪ CHKN World ✪!`);
+ channel.send(`Buongiornoo! 🐓 ${member} Benvenuto nel ✪ CHKN World ✪!`);
 });
   
 bot.on('guildMemberAdd', member => {
