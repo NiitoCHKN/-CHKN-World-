@@ -67,11 +67,10 @@ bot.on('ready', () => {
   });
 
 
-client.on('guildMemberAdd' , member => {
-  const channel = member.guild.channels.find('name', 'welcome-log');
+<Client>.on('guildMemberAdd', member => {
+  const channel = member.guild.channels.find('name', 'member-log');
   if (!channel) return;
- channel.send('Buongiornoo! E Benvenuto nel ✪ CHKN World ✪, ${member}');
+  channel.send(`Welcome to the server, ${member}`);
 });
-
 
 bot.login(process.env.BOT_TOKEN);
