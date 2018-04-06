@@ -66,20 +66,10 @@ bot.on('ready', () => {
   
   });
   
-const Discord = require("discord.js");
-const client = new Discord.Client();
-
-  client.on("guildMemberAdd", (member) => {
-  const guild = member.guild;
-  newUsers.set(member.id, member.user);
-
-  if (newUsers.size > 10) {
-    const defaultChannel = guild.channels.find(c=> c.permissionsFor(guild.me).has("SEND_MESSAGES"));
-    const userlist = newUsers.map(u => u.toString()).join(" ");
-    defaultChannel.send("Welcome our new users!\n" + userlist);
-    newUsers.clear();
-  }
-    
-});
+client.on('channelCreate', channel => {
+console.log ('A ${channel.type} by the name of ${channel.name} and was
+${channel.createAt} with the ID of ${channel.id}');
+channel.sendMessage('Hai creato con successo un nuovo canale.');
   
+
 bot.login(process.env.BOT_TOKEN);
