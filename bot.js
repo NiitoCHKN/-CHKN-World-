@@ -11,7 +11,7 @@ bot.on("guildMemberAdd", member => {
  channel.send(`Buongiornoo! 🐓 ${member} Benvenuto nel ✪ CHKN World ✪!`);
 });
 
-client.on('channelCreate', channel => {
+bot.on('channelCreate', channel => {
 console.log (`A ${channel.type} by the name of ${channel.name} and was ${channel.createAt} with the ID of ${channel.id}`);
 channel.send(`Channel created!`);
 });
