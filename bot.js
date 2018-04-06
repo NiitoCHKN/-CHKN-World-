@@ -1,21 +1,13 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const bot = new Discord.Client ();
 
-client.on('ready', () => {
-    console.log('I am ready!');
+bot.on('ready', () => {
+  console.log('I am ready!');
 });
 
-client.on('message', message => {
-    if (message.content === 'ping') {
-    	message.channel.send('PONG!');
-  	}
+bot.on('guildMemberAdd', member => {
+  member.user.send("Messaggio che verrà inviato in MP");
+       console.log(`${member.user.username} has joined`);
 });
 
-client.on('message', message => {
-    if (message.content === 'bing') {
-    	message.reply('BONG!');
-  	}
-});
-
-// THIS  MUST  BE  THIS  WAY
 bot.login(process.env.BOT_TOKEN);
