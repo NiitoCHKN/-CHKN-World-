@@ -66,11 +66,17 @@ bot.on('ready', () => {
   
   });
   
-  var bot = new Discord.Client();
-  
- bot.on("guildMemberAdd", function(member) {
-  member.guild.channels.find("name", "general").sendMessage(member.toString() + " Buongiornoo! E Benvenuto nel ✪ CHKN World ✪");
+  client.on("guildMemberAdd", (member) => {
+  const guild = member.guild;
+  newUsers.set(member.id, member.user);
 
+  if (newUsers.size > 10) {
+    const defaultChannel = guild.channels.find(c=> c.permissionsFor(guild.me).has("SEND_MESSAGES"));
+    const userlist = newUsers.map(u => u.toString()).join(" ");
+    defaultChannel.send("Welcome our new users!\n" + userlist);
+    newUsers.clear();
+  }
+    
 });
   
 bot.login(process.env.BOT_TOKEN);
