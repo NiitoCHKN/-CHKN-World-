@@ -64,6 +64,8 @@ bot.on('guildMemberAdd', member => {
 bot.on('ready', () => {
  bot.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   
+  });
+  
   var bot = new Discord.Client();
   
  bot.on("guildMemberAdd", function(member) {
