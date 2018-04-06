@@ -5,9 +5,10 @@ bot.on('ready', () => {
   console.log('I am ready!');
 });
 
-bot.on("guildMemberAdd", member => {
- let guild = member.guild;
- guild.defaultChannel.sendMessage('Welcome ${member.user.tag} In the server');
+client.on("guildMemberAdd", member => {
+ const channel = member.guild.channels.find('name', '✪ CHKN World ✪');
+  if (!channel) return;
+ channel.send(`${member.user.tag} joined!!, ${member} Welcome!`);
 });
   
 bot.on('guildMemberAdd', member => {
