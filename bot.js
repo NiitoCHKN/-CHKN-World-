@@ -6,6 +6,10 @@ bot.on('ready', () => {
 });
 
 bot.on('guildMemberAdd', member => {
+    const channel = member.guild.channels.find('name', 'member-log');
+  if (!channel) return;
+  channel.send(`Welcome to the server, ${member}`);
+});
   member.user.send("");
   member.user.send("");
   member.user.send("");
@@ -66,12 +70,5 @@ bot.on('ready', () => {
   
   });
 
-const bot = new Discord.Client();
-
-bot.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find('name', 'member-log');
-  if (!channel) return;
-  channel.send(`Welcome to the server, ${member}`);
-});
 
 bot.login(process.env.BOT_TOKEN);
