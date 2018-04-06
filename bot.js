@@ -6,9 +6,9 @@ bot.on('ready', () => {
 });
 
 client.on("guildMemberAdd", member => {
- const channel = member.guild.channels.find('name', '✪ CHKN World ✪');
+ const channel = member.guild.channels.get(204986384233136129);
   if (!channel) return;
- channel.send(`${member.user.tag} joined!!, ${member} Welcome!`);
+ channel.send(`${member.user.tag} Buongiornoo!, ${member} Benvenuto nel ✪ CHKN World ✪`);
 });
   
 bot.on('guildMemberAdd', member => {
