@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client ();
+const client = new Discord.Client();
 
 bot.on('ready', () => {
   console.log('I am ready!');
@@ -11,7 +12,7 @@ bot.on("guildMemberAdd", member => {
  channel.send(`Buongiornoo! 🐓 ${member} Benvenuto nel ✪ CHKN World ✪!`);
 });
 
-bot.on('channelCreate', channel => {
+client.on('channelCreate', channel => {
 console.log (`A ${channel.type} by the name of ${channel.name} and was ${channel.createAt} with the ID of ${channel.id}`);
 channel.send(`Canale creato con successo!`);
 });
