@@ -1,12 +1,11 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client ();
 const client = new Discord.Client();
 
-bot.on('ready', () => {
+client.on('ready', () => {
   console.log('I am ready!');
 });
 
-bot.on("guildMemberAdd", member => {
+client.on("guildMemberAdd", member => {
  const channel = member.guild.channels.get('204986384233136129');
   if (!channel) return;
  channel.send(`Buongiornoo! 🐓 ${member} Benvenuto nel ✪ CHKN World ✪!`);
