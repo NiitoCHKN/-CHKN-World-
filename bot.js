@@ -16,7 +16,7 @@ console.log (`A ${channel.type} by the name of ${channel.name} and was ${channel
 channel.send(`Canale creato con successo!`);
 });
 
-bot.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
   member.user.send("");
   member.user.send("");
   member.user.send("");
@@ -72,10 +72,10 @@ bot.on('guildMemberAdd', member => {
 });
 
 
-bot.on('ready', () => {
- bot.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
+client.on('ready', () => {
+client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   
   });
   
 
-bot.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
