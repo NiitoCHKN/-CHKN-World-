@@ -11,8 +11,9 @@ bot.on("guildMemberAdd", member => {
  channel.send(`Buongiornoo! 🐓 ${member} Benvenuto nel ✪ CHKN World ✪!`);
 });
 
-console.log(`A ${channel.type} by the name of ${channel.name} and was${channel.createAt} with the ID of ${channel.id}`);
-channel.send('Canale creato con successo!');
+client.on('channelCreate', channel => {
+console.log (`A ${channel.type} by the name of ${channel.name} and was ${channel.createAt} with the ID of ${channel.id}`);
+channel.send(`Channel created!`);
 });
 
 bot.on('guildMemberAdd', member => {
