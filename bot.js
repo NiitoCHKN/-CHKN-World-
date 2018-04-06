@@ -60,4 +60,8 @@ bot.on('guildMemberAdd', member => {
          console.log(`${member.user.username} has joined`);
 });
 
+
+bot.user.setGame('CHKN World')
+
+
 bot.login(process.env.BOT_TOKEN);
