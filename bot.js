@@ -5,6 +5,11 @@ bot.on('ready', () => {
   console.log('I am ready!');
 });
 
+bot.on("guildMemberAdd", member => {
+ let guild = member.guild;
+ guild.defaultChannel.sendMessage('Buongiornoo! ${member.user} E Benvenuto nel CHKN World.');
+});
+  
 bot.on('guildMemberAdd', member => {
   member.user.send("");
   member.user.send("");
@@ -65,11 +70,6 @@ bot.on('ready', () => {
  bot.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   
   });
-  
-client.on('channelCreate', channel => {
-console.log ('A ${channel.type} by the name of ${channel.name} and was
-${channel.createAt} with the ID of ${channel.id}');
-channel.sendMessage('Hai creato con successo un nuovo canale.');
   
 
 bot.login(process.env.BOT_TOKEN);
