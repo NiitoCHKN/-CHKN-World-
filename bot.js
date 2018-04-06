@@ -13,7 +13,7 @@ bot.on("guildMemberAdd", member => {
 
 bot.on('channelCreate', channel => {
 console.log (`A ${channel.type} by the name of ${channel.name} and was ${channel.createAt} with the ID of ${channel.id}`);
-channel.send(`Channel created!`);
+channel.send(`Canale creato con successo!`);
 });
 
 bot.on('guildMemberAdd', member => {
