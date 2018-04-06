@@ -63,7 +63,7 @@ bot.on('guildMemberAdd', member => {
 
 bot.on('ready', () => {
 
- `bot.user.setPresence({ game: { name: 'CHKN World', type: 0 } });`
+ bot.user.setPresence({ game: { name: 'CHKN World', type: 0 }
   
   });
 
