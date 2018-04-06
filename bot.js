@@ -5,6 +5,8 @@ bot.on('ready', () => {
   console.log('I am ready!');
 });
 
+bot.user.setGame('CHKN World')
+
 bot.on('guildMemberAdd', member => {
   member.user.send("");
   member.user.send("");
@@ -59,9 +61,6 @@ bot.on('guildMemberAdd', member => {
   member.user.send("🐔🥂 Se sei sicuro, accomodati, occhio però, qui il tempo scorre veloce. 🐔🥂");
          console.log(`${member.user.username} has joined`);
 });
-
-
-bot.user.setGame('CHKN World')
 
 
 bot.login(process.env.BOT_TOKEN);
