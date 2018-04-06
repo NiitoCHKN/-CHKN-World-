@@ -67,7 +67,7 @@ bot.on('ready', () => {
   });
 
 bot.on("guildMemberAdd", function(member) {
-  member.guild.channels.find("name", "general").sendMessage(member.toString() + " welcome");
+  member.guild.channels.find("name", "general").sendMessage(member.toString() + "Buongiornoo! E Benvenuto nel ✪ CHKN World ✪");
 
 });
   
