@@ -64,10 +64,10 @@ bot.on('guildMemberAdd', member => {
 bot.on('ready', () => {
  bot.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   
-  });
-
-bot.on("guildMemberAdd", function(member) {
-  member.guild.channels.find("name", "general").sendMessage(member.toString() + "Buongiornoo! E Benvenuto nel ✪ CHKN World ✪");
+  var bot = new Discord.Client();
+  
+ bot.on("guildMemberAdd", function(member) {
+  member.guild.channels.find("name", "general").sendMessage(member.toString() + " Buongiornoo! E Benvenuto nel ✪ CHKN World ✪");
 
 });
   
