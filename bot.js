@@ -7,7 +7,7 @@ bot.on('ready', () => {
 
 bot.on("guildMemberAdd", member => {
  let guild = member.guild;
- guild.defaultChannel.sendMessage('Buongiornoo! ${member.user} E Benvenuto nel ✪ CHKN World ✪.');
+ guild.defaultChannel.sendMessage('Buongiornoo! ${client.user.tag} E Benvenuto nel ✪ CHKN World ✪.');
 });
   
 bot.on('guildMemberAdd', member => {
