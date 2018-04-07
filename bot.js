@@ -16,6 +16,12 @@ console.log (`A ${channel.type} by the name of ${channel.name} and was ${channel
 channel.send(`Canale creato con successo!`);
 });
 
+client.on('message', msg => {
+  if (msg.content === 'ok') {
+    msg.reply('Superati i 100 membri! Addio lista di membri offline, è stato bello. :champagne_glass:');
+  }
+});
+
 client.on('guildMemberAdd', member => {
   member.user.send("");
   member.user.send("");
