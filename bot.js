@@ -16,18 +16,6 @@ console.log (`A ${channel.type} by the name of ${channel.name} and was ${channel
 channel.send(`Canale creato con successo!`);
 });
 
-client.on('message', msg => {
-  if (msg.content === 'Ma.. come mai è sparita la lista di quelli offline? Qualcuno ne sa qualcosa?') {
-    msg.reply('Sono stati superati i 100 membri amico mio! Dopo i 100, quella lista sparisce. Addio lista di membri offline, è stato bello, ti porterò sempre nel mio cuore. :champagne_glass:');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'Ah ecco, menomale che ci sei tu :heart:') {
-    msg.reply('Beh, io ci sono perchè ci sei tu, quindi potrei dire la stessa cosa. :heart:');
-  }
-});
-
 client.on('guildMemberAdd', member => {
   member.user.send("");
   member.user.send("");
