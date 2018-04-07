@@ -23,8 +23,8 @@ client.on('message', msg => {
 });
 
 client.on('message', msg => {
-  if (msg.content === 'Ah ecco, menomale che ci sei tu <3') {
-    msg.reply('Beh, io ci sono perchè ci sei tu, quindi potrei dire la stessa cosa. <3');
+  if (msg.content === 'Ah ecco, menomale che ci sei tu :heart:') {
+    msg.reply('Beh, io ci sono perchè ci sei tu, quindi potrei dire la stessa cosa. :heart:');
   }
 });
 
