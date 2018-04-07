@@ -17,8 +17,14 @@ channel.send(`Canale creato con successo!`);
 });
 
 client.on('message', msg => {
-  if (msg.content === 'ok') {
-    msg.reply('Superati i 100 membri! Addio lista di membri offline, è stato bello. :champagne_glass:');
+  if (msg.content === 'Dov'è andata a finire la lista di quelli offline? Qualcuno ne sa qualcosa?') {
+    msg.reply('Sono stati superati i 100 membri amico mio! Dopo i 100, quella lista sparisce. Addio lista di membri offline, è stato bello, ti porterò sempre nel mio cuore. :champagne_glass:');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'Ah ecco, menomale che ci sei tu <3') {
+    msg.reply('Beh, io ci sono perchè ci sei tu, quindi potrei dire la stessa cosa. <3');
   }
 });
 
