@@ -97,11 +97,11 @@ client.on("message", message => {
   if (curLevel > userData.level) {
     // Level up!
     userData.level = curLevel;
-    message.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
+    message.reply(`Complimenti! Sei #CHKNLivellato! **${curLevel}**! Ora puoi considerarti una persona più importante nel CHKN World :)`);
   }
 
   if (message.content.startsWith(prefix + "level")) {
-    message.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
+    message.reply(`Vuoi sapere che liv sei eh? Non essere ansioso, il tempo per diventare il migliore di tutti c'è! Comunque, sei livello ${userData.level}, con ${userData.points} punti exp.`);
   }
   fs.writeFile("./points.json", JSON.stringify(points), (err) => {
     if (err) console.error(err)
