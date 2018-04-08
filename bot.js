@@ -78,27 +78,62 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   });
   
 
-var money=0,level=1,xp=0;
+import discord
+import json
+import os.path
 
-function updatecounters(){
-    if (xp > 400) {
-        level+=Math.floor(xp/400);// if xp is 1000, two levels up
-        xp=xp%400;// what is left when increasing levels
-     }
-    document.getElementById("money").innerHTML = 'Money: ' + money;
-    document.geElementById("xp").innerHTML = 'XP: ' + xp;
-    document.getElementById("level").innerHTML = 'Current level: ' + level;
-  }
+client = discord.Client()
+BOT_TOKEN = "BOT_TOKEN"
 
 
- function giveExp(number){
-     money +=  50;
-     xp +=  100;
-     updatecounters();//update
- }
+@client.event
+async def on_ready():
+    print(client.user.name)
+    print("===================")
 
-   window.onload=updatecounters;//onload init counters
 
- });
-  
+@client.event
+async def on_message(message):
+
+    if message.content.lower().startswith('.test'):
+        await client.send_message(message.channel, "Test")
+
+    if message.content.lower().startswith('.xp'):
+        await client.send_message(message.channel, "Du hast `{}` XP!".format(get_xp(message.author.id)))
+
+    user_add_xp(message.author.id, 2)
+
+
+def user_add_xp(user_id: int, xp: int):
+    if os.path.isfile("users.json"):
+        try:
+            with open('users.json', 'r') as fp:
+                users = json.load(fp)
+            users[user_id]['xp'] += xp
+            with open('users.json', 'w') as fp:
+                json.dump(users, fp, sort_keys=True, indent=4)
+        except KeyError:
+            with open('users.json', 'r') as fp:
+                users = json.load(fp)
+            users[user_id] = {}
+            users[user_id]['xp'] = xp
+            with open('users.json', 'w') as fp:
+                json.dump(users, fp, sort_keys=True, indent=4)
+    else:
+        users = {user_id: {}}
+        users[user_id]['xp'] = xp
+        with open('users.json', 'w') as fp:
+            json.dump(users, fp, sort_keys=True, indent=4)
+
+
+def get_xp(user_id: int):
+    if os.path.isfile('users.json'):
+        with open('users.json', 'r') as fp:
+            users = json.load(fp)
+        return users[user_id]['xp']
+    else:
+        return 0
+
+  });  
+
 client.login(process.env.BOT_TOKEN);
