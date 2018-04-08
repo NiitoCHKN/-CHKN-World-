@@ -78,28 +78,20 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   });
   
 
-import discord
-import json
-import os.path
-
-client = discord.Client()
-BOT_TOKEN = "BOT_TOKEN"
-
-
-@client.event
+client.on
 async def on_ready():
     print(client.user.name)
     print("===================")
 
 
-@client.event
+client.on
 async def on_message(message):
 
     if message.content.lower().startswith('.test'):
         await client.send_message(message.channel, "Test")
 
     if message.content.lower().startswith('.xp'):
-        await client.send_message(message.channel, "Du hast `{}` XP!".format(get_xp(message.author.id)))
+        await client.send_message(message.channel, "Sei CHKN Livellato `{}` XP!".format(get_xp(message.author.id)))
 
     user_add_xp(message.author.id, 2)
 
