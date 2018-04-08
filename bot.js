@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const fs = require("fs");
 
 client.on('ready', () => {
   console.log('I am ready!');
@@ -78,54 +79,35 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   });
   
 
-client.on
-async def on_ready():
-    print(client.user.name)
-    print("===================")
+let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
+const prefix = "+";
 
+client.on("message", message => {
+  if (!message.content.startsWith(prefix)) return;
+  if (message.author.bot) return;
 
-client.on
-async def on_message(message):
+  if (!points[message.author.id]) points[message.author.id] = {
+    points: 0,
+    level: 0
+  };
+  let userData = points[message.author.id];
+  userData.points++;
 
-    if message.content.lower().startswith('.test'):
-        await client.send_message(message.channel, "Test")
+  let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
+  if (curLevel > userData.level) {
+    // Level up!
+    userData.level = curLevel;
+    message.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
+  }
 
-    if message.content.lower().startswith('.xp'):
-        await client.send_message(message.channel, "Sei CHKN Livellato `{}` XP!".format(get_xp(message.author.id)))
+  if (message.content.startsWith(prefix + "level")) {
+    message.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
+  }
+  fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+    if (err) console.error(err)
+  });
 
-    user_add_xp(message.author.id, 2)
+});
 
-
-def user_add_xp(user_id: int, xp: int):
-    if os.path.isfile("users.json"):
-        try:
-            with open('users.json', 'r') as fp:
-                users = json.load(fp)
-            users[user_id]['xp'] += xp
-            with open('users.json', 'w') as fp:
-                json.dump(users, fp, sort_keys=True, indent=4)
-        except KeyError:
-            with open('users.json', 'r') as fp:
-                users = json.load(fp)
-            users[user_id] = {}
-            users[user_id]['xp'] = xp
-            with open('users.json', 'w') as fp:
-                json.dump(users, fp, sort_keys=True, indent=4)
-    else:
-        users = {user_id: {}}
-        users[user_id]['xp'] = xp
-        with open('users.json', 'w') as fp:
-            json.dump(users, fp, sort_keys=True, indent=4)
-
-
-def get_xp(user_id: int):
-    if os.path.isfile('users.json'):
-        with open('users.json', 'r') as fp:
-            users = json.load(fp)
-        return users[user_id]['xp']
-    else:
-        return 0
-
-  });  
 
 client.login(process.env.BOT_TOKEN);
