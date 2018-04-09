@@ -21,8 +21,8 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  if (msg.content === 'Prego! Ma non è mica finita eh.. abbiamo appena iniziato.') {
-    msg.reply('Meglio! Ora scappo che il ruolo da manager è impegnativo lo sai.. alla prossima!');
+  if (msg.content === 'yo') {
+    msg.reply('yo');
   }
 });
 
