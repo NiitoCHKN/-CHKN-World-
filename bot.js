@@ -6,6 +6,26 @@ client.on('ready', () => {
   console.log('I am ready!');
 });
 
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('message', msg => {
+  if (msg.content === 'Manager? La segretaria ha detto che volevi dirmi qualcosa, dimmi tutto') {
+    msg.reply('Semplicemente, grazie, perchè in due giorni mi hai imparato più tu che i miei prof alle medie e alle superiori, ho imparato anche il level system in così poco tempo.');
+  }
+});
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('message', msg => {
+  if (msg.content === 'Prego! Ma non è mica finita eh.. siamo solo all'inizio..') {
+    msg.reply('Meglio! Ora scappo che il ruolo da manager è impegnativo lo sai.. alla prossima!');
+  }
+});
+
 client.on("guildMemberAdd", member => {
  const channel = member.guild.channels.get('204986384233136129');
   if (!channel) return;
