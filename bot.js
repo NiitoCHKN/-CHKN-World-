@@ -12,14 +12,15 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   if (msg.content === 'Manager? La segretaria ha detto che volevi dirmi qualcosa, dimmi tutto') {
-    msg.reply('Semplicemente, grazie, perchè in due giorni mi hai imparato più tu che i miei prof alle medie e alle superiori, ho imparato anche il level system in così poco tempo.');
+    msg.reply('Mi sento troppo un boss perchè in due giorni mi hai insegnato più tu che i miei prof alle medie e alle superiori, ho già imparato anche il level system in così poco tempo :D');
   }
 });
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+client.on('message', msg => {
+  if (msg.content === 'Mi fa piacere! Abbiamo appena iniziato eheh') {
+    msg.reply('Ottimo! ma ora devo scappare perchè ho tante cose da fare, il ruolo da manager richiede tanto lavoro! Alla prossima!');
+  }
 });
-
 client.on('message', msg => {
   if (msg.content === 'yo') {
     msg.reply('yo');
