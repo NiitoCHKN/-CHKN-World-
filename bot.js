@@ -89,8 +89,8 @@ client.on("message", message => {
 
   if (!message.content.startsWith(prefix)) return;
   if (message.author.bot) return;
- 
-  
+
+
   if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
     level: 0
@@ -102,16 +102,18 @@ client.on("message", message => {
   if (curLevel > userData.level) {
     // Level up!
     userData.level = curLevel;
-    message.reply(`Complimenti! Sei #CHKNLivellato! Hai raggiunto il **${curLevel}**! Ora puoi considerarti una persona più importante nel CHKN World :)`);
+    message.reply(il tuo livello è **${curLevel}**!);
   }
 
   if (message.content.startsWith(prefix + "level")) {
-    message.reply(`Vuoi sapere che liv sei eh? Non essere ansioso, c'è sempre tempo per diventare il migliore di tutti! Comunque, sei livello ${userData.level}, con ${userData.points} punti exp.`);
+    message.reply(livello ${userData.level}, con ${userData.points} exp.);
   }
 points[message.author.id] = userData;
   fs.writeFile("./points.json", JSON.stringify(points), (err) => {
     if (err) console.error(err)
   });
+
+});
 
 
 
