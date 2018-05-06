@@ -1,5 +1,5 @@
 
-[
+{
     "points",
     "points/{id}",
     "points/new",
@@ -16,4 +16,4 @@
     "points/triggers/batch/delete",
     "points/triggers/{id}/edit",
     "points/triggers/{id}/delete"
-]
+} 
