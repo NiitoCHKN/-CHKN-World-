@@ -102,7 +102,7 @@ client.on("message", message => {
   if (curLevel > userData.level) {
     // Level up!
     userData.level = curLevel;
-    message.reply(`Complimenti! Sei #CHKNLivellato! Hai raggiunto il livello **${curLevel}**! Ora puoi considerarti una persona più importante nel CHKN World :)`);
+    message.reply(`Complimenti! Sei #CHKNLivellato! Hai raggiunto il livello **${curLevel}**! Ora puoi considerarti una persona più importante all'interno del CHKN World :)`);
   }
 
   if (message.content.startsWith(prefix + "level")) {
