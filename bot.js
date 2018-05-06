@@ -84,10 +84,12 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   
 
 client.on("message", message => {
-  if (!message.content.startsWith(prefix)) return;
-  if (message.author.bot) return;
   let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
   const prefix = "+";
+  
+  if (!message.content.startsWith(prefix)) return;
+  if (message.author.bot) return;
+  
   
   if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
