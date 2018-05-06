@@ -86,7 +86,6 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
 client.on("message", message => {
   if (!message.content.startsWith(prefix)) return;
   if (message.author.bot) return;
-
   let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
   const prefix = "+";
   
