@@ -86,10 +86,10 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
 client.on("message", message => {
   let points = JSON.parse(fs.readFileSync(__dirname + "/point.json"));
   const prefix = "+";
-  
+
   if (!message.content.startsWith(prefix)) return;
   if (message.author.bot) return;
-  
+ 
   
   if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
@@ -108,11 +108,11 @@ client.on("message", message => {
   if (message.content.startsWith(prefix + "level")) {
     message.reply(`Vuoi sapere che liv sei eh? Non essere ansioso, c'è sempre tempo per diventare il migliore di tutti! Comunque, sei livello ${userData.level}, con ${userData.points} punti exp.`);
   }
+points[message.author.id] = userData;
   fs.writeFile("./points.json", JSON.stringify(points), (err) => {
     if (err) console.error(err)
   });
 
-});
 
 
 client.login(process.env.BOT_TOKEN);
