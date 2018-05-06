@@ -109,7 +109,7 @@ client.on("message", message => {
     message.reply(livello ${userData.level}, con ${userData.points} exp.);
   }
 points[message.author.id] = userData;
-  fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+  fs.writeFile("./point.json", JSON.stringify(points), (err) => {
     if (err) console.error(err)
   });
 
