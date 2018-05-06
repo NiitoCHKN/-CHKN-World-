@@ -102,11 +102,11 @@ client.on("message", message => {
   if (curLevel > userData.level) {
     // Level up!
     userData.level = curLevel;
-    message.reply(il tuo livello è **${curLevel}**!);
+    message.reply(`il tuo livello è **${curLevel}**!`);
   }
 
   if (message.content.startsWith(prefix + "level")) {
-    message.reply(livello ${userData.level}, con ${userData.points} exp.);
+    message.reply(`livello ${userData.level}, con ${userData.points} exp.`);
   }
 points[message.author.id] = userData;
   fs.writeFile("./point.json", JSON.stringify(points), (err) => {
