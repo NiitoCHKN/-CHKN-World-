@@ -83,13 +83,12 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   });
   
 
-client.on("message", message => {
-  let points = JSON.parse(fs.readFileSync(__dirname + "/point.json"));
-  const prefix = "+";
+let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
+const prefix = "+";
 
+client.on("message", message => {
   if (!message.content.startsWith(prefix)) return;
   if (message.author.bot) return;
-
 
   if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
@@ -98,23 +97,21 @@ client.on("message", message => {
   let userData = points[message.author.id];
   userData.points++;
 
-  let curLevel = Math.floor(0.8 * Math.sqrt(userData.points));
+  let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
   if (curLevel > userData.level) {
     // Level up!
     userData.level = curLevel;
-    message.reply(`Complimenti! Sei #CHKNLivellato! Hai raggiunto il livello **${curLevel}**! Ora puoi considerarti una persona più importante all'interno del CHKN World :)`);
+    message.reply(`sei aumentato di liv **${curLevel}**!`);
   }
 
   if (message.content.startsWith(prefix + "level")) {
-    message.reply(`Vuoi sapere che liv sei eh? Non essere ansioso, c'è sempre tempo per diventare il migliore di tutti! Comunque, sei livello ${userData.level}, con ${userData.points} punti exp.`);
+    message.reply(`sei attualmente liv ${userData.level}, con ${userData.points} punti.`);
   }
-points[message.author.id] = userData;
-  fs.writeFile("./point.json", JSON.stringify(points), (err) => {
+  fs.writeFile("./points.json", JSON.stringify(points), (err) => {
     if (err) console.error(err)
   });
 
 });
-
 
 
 client.login(process.env.BOT_TOKEN);
