@@ -83,7 +83,7 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   });
   
 
-let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
+let points = JSON.parse(fs.readFileSync("./point.json", "utf8"));
 const prefix = "+";
 
 client.on("message", message => {
