@@ -107,7 +107,7 @@ client.on("message", message => {
   if (message.content.startsWith(prefix + "level")) {
     message.reply(`sei attualmente liv ${userData.level}, con ${userData.points} punti.`);
   }
-  fs.writeFile("./point.json", JSON.stringify(points), (err) => {
+  fs.writeFile("./points.json", JSON.stringify(points), (err) => {
     if (err) console.error(err)
   });
 
