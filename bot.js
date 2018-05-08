@@ -82,7 +82,7 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   
   });
   
-
+let points = JSON.parse(fs.readFileSync(__dirname + "/xp.json"))
 let xpAdd = Math.floor(Math.random() * 7) + 8;
   console.log(xpAdd);
 
@@ -103,7 +103,7 @@ let xpAdd = Math.floor(Math.random() * 7) + 8;
     xp[message.author.id].level = curlvl + 1;
 message.channel.send("New Level", curlvl +1).then(msg => {msg.delete(5000)});
   }
-  fs.writeFile(/xp.json", JSON.stringify(xp), (err) => {
+  fs.writeFile(./xp.json", JSON.stringify(xp), (err) => {
     if(err) console.log(err)
    
   });
