@@ -102,7 +102,7 @@ client.on("message", message => {
   if (curLevel > userData.level) {
   let level = points[message.author.id]; userData.level;
     // Level up!
-    userData.level = curLevel;
+    userData.level;
     message.reply(`Complimenti! Sei #CHKNLivellato! Hai raggiunto il livello **${level+1}**! Ora puoi considerarti una persona più importante all'interno del CHKN World.`);
   }
 
