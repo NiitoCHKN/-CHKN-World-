@@ -83,38 +83,30 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   });
   
 
-client.on("message", message => {
-  let points = JSON.parse(fs.readFileSync(__dirname + "/point.json"));
-  const prefix = "+";
+let xpAdd = Math.floor(Math.random() * 7) + 8;
+  console.log(xpAdd);
 
-  if (!message.content.startsWith(prefix)) return;
-  if (message.author.bot) return;
-
-
-  if (!points[message.author.id]) points[message.author.id] = {
-    points: 0,
-    level: 0
-  };
-  let userData = points[message.author.id];
-  userData.points++;
-
-  let curLevel = Math.floor(0.8 * Math.sqrt(userData.points));
-  if (curLevel > userData.level) {
-  let level = points[message.author.id]; userData.level;
-    // Level up!
-    userData.level;
-    message.reply(`Complimenti! Sei #CHKNLivellato! Hai raggiunto il livello **${level+1}**! Ora puoi considerarti una persona più importante all'interno del CHKN World.`);
+  if(!xp[message.author.id]){
+    xp[message.author.id] = {
+      id: message.author.id,
+      xp: 0,
+      level: 1
+    };
   }
 
-  if (message.content.startsWith(prefix + "level")) {
-    message.reply(`Vuoi sapere che liv sei eh? Non essere ansioso, c'è sempre tempo per diventare il migliore di tutti! Comunque, sei livello ${userData.level}, con ${userData.points} punti exp.`);
+  let id = xp[message.author.id].id
+  let curxp = xp[message.author.id].xp;
+  let curlvl = xp[message.author.id].level;
+  let nxtLvl = xp[message.author.id].level * 300;
+  xp[message.author.id].xp =  curxp + xpAdd;
+  if(nxtLvl <= xp[message.author.id].xp){
+    xp[message.author.id].level = curlvl + 1;
+message.channel.send("New Level", curlvl +1).then(msg => {msg.delete(5000)});
   }
-points[message.author.id] = userData;
-  fs.writeFile("./point.json", JSON.stringify(points), (err) => {
-    if (err) console.error(err)
+  fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+    if(err) console.log(err)
+   
   });
-
-});
 
 
 client.login(process.env.BOT_TOKEN);
