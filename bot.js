@@ -82,38 +82,5 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   
   });
   
-client.on("message", message => {
-  let points = JSON.parse(fs.readFileSync(__dirname + "/point.json"));
-  const prefix = "+";
-
-  if (!message.content.startsWith(prefix)) return;
-  if (message.author.bot) return;
-
-
-  if (!points[message.author.id]) points[message.author.id] = {
-    points: 0,
-    level: 0
-  };
-  let userData = points[message.author.id];
-  userData.points++;
-
- let curLevel = Math.floor(0.8 * Math.sqrt(userData.points));
-  if (curLevel > userData.level) {
-  let level = points[message.author.id]; userData.level;
-    // Level up!
-    userData.level = curLevel;
-    message.reply(`Complimenti! Ora sei livello **${curLevel}**!`);
-  }
-
-  if (message.content.startsWith(prefix + "level")) {
-    message.reply(`Il tuo livello è ${userData.level}, con ${userData.points} exp.`);
-  }
-points[message.author.id] = userData;
-  fs.writeFile("./point.json", JSON.stringify(points), (err) => {
-    if (err) console.error(err)
-  });
-
-});
-
 
 client.login(process.env.BOT_TOKEN);
