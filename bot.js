@@ -85,12 +85,12 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
 
 client = commands.Bot(command_prefix = "!")
 
-@client.command(pass_context = True)
+client.command(pass_context = True)
 def ban(member: discord.Member, days: int = 1):
     if "449706643710541824" in [role.id for role in message.author.roles]:
-        await bot.ban(member, days)
+        await client.ban(member, days)
     else:
-        await bot.say("You don't have permission to use this command.")
+        await client.say("You don't have permission to use this command.")
 
 
 
