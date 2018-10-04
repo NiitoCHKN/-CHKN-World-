@@ -83,9 +83,9 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   });
   
 
-bot = commands.Bot(command_prefix = "!")
+client = commands.Bot(command_prefix = "!")
 
-@bot.command(pass_context = True)
+@client.command(pass_context = True)
 def ban(member: discord.Member, days: int = 1):
     if "449706643710541824" in [role.id for role in message.author.roles]:
         await bot.ban(member, days)
