@@ -68,7 +68,7 @@ client.on('guildMemberAdd', member => {
   member.user.send("");
   member.user.send("");
   member.user.send("Ma a noi non ce ne frega proprio un cazzo, perchè tanto i regolamenti nessuno li legge, e poi le regole sono sempre le stesse, non c'è bisogno che le scrivo per fare bella figura sui nuovi che entrano, l'unica cosa che posso dirti è:");
-  member.user.send("Sei davvero sicuro di volerne far parte? Ti avverto che una volta entrati, non si esce. La Nitocrazia ti rimarrà impressa per sempre.");
+  member.user.send("Sei davvero sicuro di volerne far parte? Ti avverto che una volta entrati, non si esce. La Niitocrazia ti rimarrà impressa per sempre.");
   member.user.send("");
   member.user.send("");
   member.user.send("");
@@ -82,16 +82,5 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   
   });
   
-
-client = commands.Bot(command_prefix = "!")
-
-client.command(pass_context = True)
-def ban(member: discord.Member, days: int = 1):
-    if "449706643710541824" in [role.id for role in message.author.roles]:
-        await client.ban(member, days)
-    else:
-        await client.say("You don't have permission to use this command.")
-
-
 
 client.login(process.env.BOT_TOKEN);
