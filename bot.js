@@ -83,9 +83,15 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   });
   
 
-member.ban(7)
-  .then(() => console.log(`Banned ${member.displayName}`))
-  .catch(console.error);
+bot = commands.Bot(command_prefix = "!")
+
+@bot.command(pass_context = True)
+def ban(member: discord.Member, days: int = 1):
+    if "449706643710541824" in [role.id for role in message.author.roles]:
+        await bot.ban(member, days)
+    else:
+        await bot.say("You don't have permission to use this command.")
+
 
 
 client.login(process.env.BOT_TOKEN);
