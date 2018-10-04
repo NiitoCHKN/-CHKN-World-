@@ -82,5 +82,32 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   
   });
   
+if(command === "ping") {
+    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
+    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
+    const m = await message.channel.send("Ping?");
+    m.edit(`Pong! La latenza è di ${m.createdTimestamp - message.createdTimestamp}ms. La latenza delle API è di ${Math.round(client.ping)}ms`);
+  }
+
+if(command === "ban") {
+    // Most of this command is identical to kick, except that here we'll only let admins do it.
+    // In the real world mods could ban too, but this is just an example, right? ;)
+    if(!message.member.roles.some(r=>["Administrator"].includes(r.name)) )
+      return message.reply("non hai i permessi");
+    
+    let member = message.mentions.members.first();
+    if(!member)
+      return message.reply("pls valido membro");
+    if(!member.bannable) 
+      return message.reply("non posso bannare quest'utente, ha un ruolo più alto del tuo");
+
+    let reason = args.slice(1).join(' ');
+    if(!reason) reason = "No reason provided";
+    
+    await member.ban(reason)
+      .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
+    message.reply(`${member.user.tag} è stato bannato da ${message.author.tag}. Motivo del ban: ${reason}`);
+  }
+
 
 client.login(process.env.BOT_TOKEN);
