@@ -83,22 +83,9 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
   });
   
 
-if(command === "ban") {
-    // Most of this command is identical to kick, except that here we'll only let admins do it.
-    // In the real world mods could ban too, but this is just an example, right? ;)
-    if(!message.member.roles.some(r=>["Administrator"].includes(r.name)) )
-      return message.reply("non hai i permessi");
-    
-    let member = message.mentions.members.first();
-    if(!member)
-      return message.reply("pls valido membro");
-    if(!member.bannable) 
-      return message.reply("non posso bannare quest'utente, ha un ruolo più alto del tuo");
-
-    let reason = args.slice(1).join(' ');
-    if(!reason) reason = "No reason provided";
-     message.reply(`${member.user.tag} è stato bannato da ${message.author.tag}. Motivo del ban: ${reason}`);
-  }
+member.ban(7)
+  .then(() => console.log(`Banned ${member.displayName}`))
+  .catch(console.error);
 
 
 client.login(process.env.BOT_TOKEN);
