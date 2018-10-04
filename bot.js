@@ -85,7 +85,6 @@ client.user.setPresence({ game: { name: 'CHKN World', type: 0 } });
 if(command === "ping") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("Un attimo..");
     m.edit(`Rieccomi! La latenza è di ${m.createdTimestamp - message.createdTimestamp}ms. La latenza delle API è di ${Math.round(client.ping)}ms`);
   }
 
