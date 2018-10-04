@@ -102,9 +102,7 @@ if(command === "ban") {
 
     let reason = args.slice(1).join(' ');
     if(!reason) reason = "No reason provided";
-    
-  .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
-    message.reply(`${member.user.tag} è stato bannato da ${message.author.tag}. Motivo del ban: ${reason}`);
+     message.reply(`${member.user.tag} è stato bannato da ${message.author.tag}. Motivo del ban: ${reason}`);
   }
 
 
