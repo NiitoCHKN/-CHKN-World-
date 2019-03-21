@@ -10,42 +10,6 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('message', msg => {
-  if (msg.content === 'Oh') {
-    msg.reply('Oh');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'Dove cazzo eri? Ti sto chiamando da mesi, cellulare sempre spento..') {
-    msg.reply('Ricordi quando ti avevo detto di aver vinto a quel programma di Jerry Scotti? Beh, con quei soldi sono andato in vacanza, non ti sono arrivate le cartoline? Ero ai Caraibi');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'Si, e devo dire che attizzano il fuoco meglio del legno') {
-    msg.reply('Ma come.. vabbè.. comunque, cosa volevi?');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'Come cosa volevo, il cazzo di spam di tremila messaggi quando si entra nel server, coglione') {
-    msg.reply('Ah.. ma è perchè ho bisogno di attenzioni.. lo sai..');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'Non me ne frega un cazzo, o risolvi o trovo un sostituto') {
-    msg.reply('NONONONONO, provvedo subito, dammi un paio di secondi..');
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content === 'Quindi?') {
-    msg.reply('FATTO! Da adesso non spammerò più i messaggi quando qualcuno entrerà nel server.');
-  }
-});
-
 client.on("guildMemberAdd", member => {
  const channel = member.guild.channels.get('204986384233136129');
   if (!channel) return;
