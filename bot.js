@@ -10,6 +10,18 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on('message', msg => {
+  if (msg.content === 'u') {
+    msg.reply('Mi sono fatto perdonare! Mentre ero in vacanza ho conosciuto un appassionato di videogiochi, ma soprattutto, un maestro nello scovare quelli gratuiti. E sono riuscito a convincerlo ad unirsi a noi. Ci informerà di tutti i giochi gratuiti nella chat "teniamoci-aggiornati"');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'Bravo, una cosa buona sei riuscito a farla dai') {
+    msg.reply('u.u');
+  }
+});
+
 client.on("guildMemberAdd", member => {
  const channel = member.guild.channels.get('204986384233136129');
   if (!channel) return;
