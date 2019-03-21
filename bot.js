@@ -25,7 +25,7 @@ client.on('guildMemberAdd', member => {
   member.user.send("");
   member.user.send("");
   member.user.send("");
-  member.user.send("**● CHI SIAMO**\nI **CHKN** nascono un po' per scherzo un po' per pazzia nei primi mesi del 2017. Come? Ve lo spiego subito.");
+  member.user.send("**● CHI SIAMO**\n  \nI **CHKN** nascono un po' per scherzo un po' per pazzia nei primi mesi del 2017. Come? Ve lo spiego subito.");
            console.log(`${member.user.username} has joined`);
 });
 
