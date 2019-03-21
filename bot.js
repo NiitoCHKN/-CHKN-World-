@@ -24,8 +24,7 @@ channel.send(`Canale creato con successo!`);
 client.on('guildMemberAdd', member => {
   member.user.send("<**● CHI SIAMO <I **CHKN** nascono un po' per scherzo un po' per pazzia un paio d'anni fa. Come? Ve lo spiego subito.**");
   member.user.send("<I **CHKN** nascono un po' per scherzo un po' per pazzia un paio d'anni fa. Come? Ve lo spiego subito.");
-  
-         console.log(`${member.user.username} has joined`);
+           console.log(`${member.user.username} has joined`);
 });
 
 
