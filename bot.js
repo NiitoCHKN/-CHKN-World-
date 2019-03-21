@@ -12,7 +12,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   if (msg.content === 'u') {
-    msg.reply('Mi sono fatto perdonare! Mentre ero in vacanza ho conosciuto un appassionato di videogiochi, ma soprattutto, un maestro nello scovare quelli gratuiti. E sono riuscito a convincerlo ad unirsi a noi. Ci informerà di tutti i giochi gratuiti nella chat "teniamoci-aggiornati"');
+    msg.reply('Mi sono fatto perdonare! Mentre ero in vacanza ho conosciuto un appassionato di videogiochi, ma soprattutto, un maestro nello scovare quelli gratuiti. E oggi, parlando del più e del meno, sono riuscito a convincerlo ad unirsi a noi. Ci informerà di tutti i giochi gratuiti nella chat "teniamoci-aggiornati"!');
   }
 });
 
