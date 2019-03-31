@@ -10,6 +10,12 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on('message', msg => {
+  if (msg.content === 'mh') {
+    msg.reply('Buona Domenica a tutti! Mentre voi siete a tavola a fare il "road to obeso" qui si lavora! Vi informo infatti che da adesso, in #teniamoci-aggiornati, oltre ai giochi gratuiti, verranno segnalate le patch di Minecraft, Fortnite, Apex, Destiny 2, For Honor, Sea Of Thieves, Paladins, BF5, DBD, PUBG, R6 e GTA5. Bene, adesso posso inviare la richiesta di aumento dello stipendio..');
+  }
+});
+
 client.on("guildMemberAdd", member => {
  const channel = member.guild.channels.get('204986384233136129');
   if (!channel) return;
